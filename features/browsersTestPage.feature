@@ -12,3 +12,7 @@ Scenario: Validate the link for "java-animate2.gif" image
     When I click on the "Java Applet" image
     Then I should be redirected to the Java Applet page with the URL "https://demo.borland.com/gmopost/javaapplet.htm"
 
+  Scenario: Validate the link for "ax-animate.gif" image
+    Given I am on the GMO Browser Test page
+    When I click on the "ActiveX" image
+    Then I should be redirected to the ActiveX page with the URL "https://demo.borland.com/gmopost/activex.htm"
