@@ -21,3 +21,16 @@ Scenario Outline: Input letters in the quantity field
     | Hiking Boots           | diez  |
     | Back Country Shorts    | quince|
 
+Scenario Outline: Input invalid symbols in the quantity field  
+  And I type "<input>" in the quantity box for "<product>"  
+  When I press the "Place an order" button  
+  Then I see a message "Please enter only digits in this field."  
+
+  Examples:
+    | product                | input | 
+    | 3 Person Dome Tent     | #$%   |
+    | External Frame Backpack| HJ%ZX |
+    | Glacier Sun Glasses    | []+? |
+    | Padded Socks           | !@#   |
+    | Hiking Boots           | %^&*~ |
+    | Back Country Shorts    | ' 'o  |
