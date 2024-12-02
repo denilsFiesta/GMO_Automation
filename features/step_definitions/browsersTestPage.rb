@@ -30,3 +30,19 @@ Then(/^I should be redirected to the ActiveX page with the URL "(.*)"$/) do |exp
     expect(actual_url).to eq(expected_url)
   end
   
+# 
+  
+When(/^I click on the "Left or Right" button$/) do
+    # Intentar encontrar el botón usando un selector más flexible
+    find('input[type="button"][value=" << Left or Right >> "]').click
+  end
+  
+  
+  Then(/^I should see the alert message "(.*)"$/) do |expected_alert_message|
+    # Verificar el mensaje de alerta
+    alert = page.driver.browser.switch_to.alert
+    expect(alert.text).to eq(expected_alert_message)
+    alert.accept
+  end
+  
+  
