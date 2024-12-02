@@ -12,3 +12,12 @@ Given(/^I am on the GMO Browser Test page$/) do
     expect(actual_url).to eq(expected_url) 
   end
   
+#   Java Applet (java-animate2.gif)
+  When(/^I click on the "Java Applet" image$/) do
+    find(:xpath, '//img[@src="images/java-animate2.gif"]').click
+  end
+  
+  Then(/^I should be redirected to the Java Applet page with the URL "(.*)"$/) do |expected_url|
+    actual_url = page.current_url
+    expect(actual_url).to eq(expected_url)
+  end
