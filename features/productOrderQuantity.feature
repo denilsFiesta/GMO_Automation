@@ -21,6 +21,20 @@ Scenario Outline: Input letters in the quantity field
     | Hiking Boots           | diez  |
     | Back Country Shorts    | quince|
 
+Scenario Outline: Leave the quantity field blank  
+  And I type "<input>" in the quantity box for "<product>"  
+  When I press the "Submit Order" button  
+  Then I see a message "Please add an item to your cart first."  
+
+  Examples:  
+    | product                | input |  
+    | Camping Tent           |       |  
+    | Hiking Backpack        |       |  
+    | Sunglasses             |       |  
+    | Thermal Socks          |       |  
+    | Trekking Shoes         |       |  
+    | Outdoor Shorts         |       |
+
 Scenario Outline: Input invalid symbols in the quantity field  
   And I type "<input>" in the quantity box for "<product>"  
   When I press the "Place an order" button  
