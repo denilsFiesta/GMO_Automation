@@ -35,6 +35,21 @@ Scenario Outline: Input invalid symbols in the quantity field
     | Hiking Boots           | %^&*~ |
     | Back Country Shorts    | ' 'o  |
 
+
+Scenario Outline: Input negative numbers in the quantity field  
+  And I type "<input>" in the quantity box for "<product>"  
+  When I press the "Place an order" button  
+  Then I see a message "Please enter only digits in this field."  
+
+  Examples:  
+    | product                | input |  
+    | Camping Tent           | -4    |  
+    | Hiking Backpack        | -11   |  
+    | Sunglasses             | -390  |  
+    | Thermal Socks          | -987  |  
+    | Trekking Shoes         | -109  |  
+    | Outdoor Shorts         | -761  |  
+
 Scenario Outline: Input decimal numbers in the quantity field  
   And I type "<input>" in the quantity box for "<product>"  
   When I press the "Place an order" button  
