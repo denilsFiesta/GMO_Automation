@@ -38,8 +38,8 @@ Then(/^the form looks like the following table$/) do |table|
       product_row = find('tr', text: product)
       actual_value = product_row.find('input[type="text"]').value
       
-      # Asegurar que el valor actual coincide con el esperado
       expect(actual_value).to eq(expected_value)
     end
   end
 end
+
