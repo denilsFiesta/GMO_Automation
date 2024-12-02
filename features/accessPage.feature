@@ -1,23 +1,22 @@
-Feature: As a internet user
-    I want to use the page GMO online
-    so I test that it works correctly
+Feature: As an internet user
+    I want to use the GMO online page
+    so I can ensure that it works correctly
 
 @maximize
-Scenario: Access to the GMO OnLine page
+Scenario: Access the GMO OnLine homepage
     Given I am on the Google homepage
-    When I copy the link for GMO OnLine page to the address bar
-    Then I see the welcome page 
+    When I paste the GMO OnLine URL in the address bar
+    Then I should see the welcome page
 
 @maximize
-Scenario: Access to the OnLine Catalog page
+Scenario Outline: Verify navigation after pressing buttons on the GMO OnLine page
     Given I am on the Google homepage
-    When I copy the link for GMO OnLine page to the address bar
-    And Press the button "Enter GMO OnLine" 
-    Then I see the Online Catalog
+    When I paste the GMO OnLine URL in the address bar
+    And I click the "<button_title>" button
+    Then I should see the "<page_title>" page
 
-@maximize
-Scenario: Access to About This Site page
-    Given I am on the Google homepage
-    When I copy the link for GMO OnLine page to the address bar
-    And Press the button "About The GMO Site" 
-    Then I see the About This Site
+    Examples:
+    | button_title         | page_title                        |   
+    | Enter GMO OnLine     | OnLine Catalog                    |   
+    | About The GMO Site   | About This Site                   |
+    | Browser Test Page    | All Browsers Are Not Created Equal| 
