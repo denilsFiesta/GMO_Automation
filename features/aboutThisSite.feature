@@ -1,6 +1,5 @@
 Feature:  
-As a digital user, I want to explore the technologies behind the site  
-to feel confident while navigating and using its features.  
+As an online shopper I want to know how the page was made.
 
 Scenario: Look the technologies used in the site  
     Given I am on the GMO online site  
