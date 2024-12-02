@@ -77,3 +77,28 @@ Scenario Outline: Input decimal numbers in the quantity field
     | Thermal Socks          | 12.99 |  
     | Trekking Shoes         | 88,07 |  
     | Outdoor Shorts         | 0.003 |  
+
+@reset
+Scenario Outline: Reset the form to its initial state after entering data
+  And I fill in the products form with the following data
+    | product                | input |
+    | <product>              | <input> |
+  When I click the Reset form button
+  Then the form looks like the following table 
+    | product                | input |
+    | 3 Person Dome Tent     | 0 |
+    | External Frame Backpack| 0 |
+    | Glacier Sun Glasses    | 0 |
+    | Padded Socks           | 0 |
+    | Hiking Boots           | 0 |
+    | Back Country Shorts    | 0 |
+
+  Examples:
+    | product                | input |
+    | 3 Person Dome Tent     | 55   |
+    | External Frame Backpack| 453  |
+    | Glacier Sun Glasses    | 67   |
+    | Padded Socks           | 69   |
+    | Hiking Boots           | 52   |
+    | Back Country Shorts    | 666  |
+
