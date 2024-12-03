@@ -4,11 +4,7 @@ And(/^I type "(.*)" in the quantity box for "(.*)"$/) do |input, product|
     xpath = "//tr[td[contains(text(), '#{product}')]]//input[@type='text']"
     find(:xpath, xpath).set(input)
   end 
-  
-When(/^I press the "Place an order" button$/) do
-  click_button('bSubmit')
-end
-
+ 
 Then(/^I see a message "(.*)"$/) do |notification|
   page.driver.browser.switch_to.alert.text == notification
   page.driver.browser.switch_to.alert.accept
@@ -26,9 +22,6 @@ And(/^I fill in the products form with the following data$/) do |table|
   end
 end
 
-When(/^I click the Reset form button$/) do
-  click_button('bReset')
-end
 
 Then(/^the form looks like the following table$/) do |table|
   within('body > form > table > tbody > tr:nth-child(2) > td > div > center > table') do

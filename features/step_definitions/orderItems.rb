@@ -1,16 +1,13 @@
 require 'selenium-webdriver'
 
-And(/^I write "(.*)" in the input box of the product "(.*)"$/) do |input, product|
+When(/^I write "(.*)" in the input box of the product "(.*)"$/) do |quantity, product|
   within('body > form > table > tbody > tr:nth-child(2) > td > div > center > table') do
     row = find('tr', text: product)
-    row.find('input[type="text"]').set(input)
+    row.find('input[type="text"]').set(quantity)
   end
 end
-When(/^I click on the "Place an order" Button$/) do
-    click_button('bSubmit')
-end
 
-And(/^I write the quantities for the product with the table below$/) do | table |
+When(/^I write the quantities for the product with the table below$/) do | table |
     data = table.rows_hash  
     data.each_pair do |key, value|
         case key

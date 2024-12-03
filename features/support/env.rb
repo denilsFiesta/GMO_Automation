@@ -35,3 +35,4 @@ CapybaraDriverRegistrar.register_selenium_driver(:chrome)
 Capybara.run_server = false
 #World(Capybara)
 
+Capybara::Screenshot.autosave_on_failure = false

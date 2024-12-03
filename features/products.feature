@@ -4,13 +4,15 @@ Feature: Testing GMO Post Product Navigation
   So I can view and explore details of available products
 
 Scenario: View details of a single product
-    Given I am on the GMO Post homepage
-    When I click the "Enter GMO Online" button
+    Given I am on the Google homepage
+    When I paste the GMO OnLine URL in the address bar
+    And I click the "Enter GMO OnLine" button
     Then I should see the catalog
 
 Scenario Outline: View details of a selected product
-    Given I am on the GMO Post homepage
-    When I click the "Enter GMO Online" button
+    Given I am on the Google homepage
+    When I paste the GMO OnLine URL in the address bar
+    And I click the "Enter GMO OnLine" button
     And I click the "<product_name>" product
     Then I should see the following details: "<product_details>"
 

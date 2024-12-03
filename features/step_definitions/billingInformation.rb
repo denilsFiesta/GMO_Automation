@@ -1,3 +1,9 @@
+# Given I am on the GMO OnLine main page
+Given("I am on the GMO OnLine main page") do
+    page.driver.browser.manage.window.maximize
+    visit('https://demo.borland.com/gmopost/')
+end
+
 # When I fill in the billing information form
 When('I fill in the billing information form') do |table|
     billing_info = table.rows_hash
@@ -30,8 +36,8 @@ Then('I should see the title {string}') do |expected_title|
     expect(page).to have_xpath("/html/body/h1")
 end
 
-# Then I should see the following "Bill To" information
-Then(/^I should see the following "Bill To" information$/) do |table|
+# And I should see the following "Bill To" information
+And(/^I should see the following "Bill To" information$/) do |table|
     selectors = {
         'Name' => 'body > table:nth-child(5) > tbody > tr:nth-child(1) > td > div > center > table > tbody > tr:nth-child(1) > td:nth-child(2) > strong',          
         'Address' => 'body > table:nth-child(5) > tbody > tr:nth-child(1) > td > div > center > table > tbody > tr:nth-child(2) > td:nth-child(2) > strong',    
@@ -48,8 +54,8 @@ Then(/^I should see the following "Bill To" information$/) do |table|
     end
 end
 
-# Then I should see the following "Ship To" information
-Then(/^I should see the following "Ship To" information$/) do |table|
+# And I should see the following "Ship To" information
+And(/^I should see the following "Ship To" information$/) do |table|
     selectors = {
         'Name' => 'body > table:nth-child(5) > tbody > tr:nth-child(1) > td > div > center > table > tbody > tr:nth-child(1) > td:nth-child(5) > strong',          
         'Address' => 'body > table:nth-child(5) > tbody > tr:nth-child(1) > td > div > center > table > tbody > tr:nth-child(2) > td:nth-child(5) > strong',    

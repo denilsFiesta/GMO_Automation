@@ -3,11 +3,7 @@ Given(/^I am on the GMO Post homepage$/) do
     page.driver.browser.manage.window.maximize
     visit('https://demo.borland.com/gmopost/')
 end
-  
-  # When I click the "Enter GMO Online" button
-When(/^I click the "Enter GMO Online" button$/) do
-    click_button('Enter GMO OnLine')
-end
+
 Then(/^I should see the catalog$/) do
     expect(page).to have_xpath("/html/body/table/tbody/tr/td[1]/h1")
     sleep 2
