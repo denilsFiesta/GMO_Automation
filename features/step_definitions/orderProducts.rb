@@ -1,4 +1,4 @@
-When(/^I type the "(.*)" for the following "(.*)" for buying$/) do |quantities, products|
+When(/^I type the "(.*)" quantities for the following "(.*)" products for buying$/) do |quantities, products|
     products_list = products.split(';').map(&:strip)
     quantities_list = quantities.split(';').map(&:strip).map(&:to_i)
  
@@ -92,6 +92,23 @@ And(/^I should see the "(.*)" in the Grand Total row$/) do |grand_total|
     expect(page).to have_xpath(grand_total_xpath)
 end 
 
+When(/^I type the "(.*)" quantity for the following "(.*)" product for buying$/) do |quantity, product|  
+    case product
+        when "3 Person Dome Tent"
+            fill_in 'QTY_TENTS', :with => quantity
+        when "External Frame Backpack"
+            fill_in 'QTY_BACKPACKS', :with => quantity
+        when "Glacier Sun Glasses"
+            fill_in 'QTY_GLASSES', :with => quantity
+        when "Padded Socks"
+            fill_in 'QTY_SOCKS', :with => quantity
+        when "Hiking Boots"
+            fill_in 'QTY_BOOTS', :with => quantity
+        when "Back Country Shorts"
+            fill_in 'QTY_SHORTS', :with => quantity
+    end
+    sleep 2
+end
 
 # aun no lo revise
 When(/^I write "(.*)" in the input box of the product "(.*)"$/) do |quantity, product|
