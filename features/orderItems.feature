@@ -28,10 +28,10 @@ Scenario Outline: Fill the quantity of just one product with different ammouts
   Examples:
     | product                | quantity |   
     | 3 Person Dome Tent     | 10       | 
-    | External Frame Backpack| 2        |  
-    | Glacier Sun Glasses    | 2        | 
-    | Padded Socks           | 1        | 
-    | Hiking Boots           | 1        |  
+    | External Frame Backpack| 7        |  
+    | Glacier Sun Glasses    | 8        | 
+    | Padded Socks           | 10       | 
+    | Hiking Boots           | 13       |  
     | Back Country Shorts    | 18       |
 
 Scenario: Fill the quantity of two different products
