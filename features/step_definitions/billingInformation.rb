@@ -25,6 +25,12 @@ And('I select {string} from the {string} dropdown') do |option, dropdown_label|
     find(:xpath, dropdown_xpath).find(:option, option).select_option
 end
 
+And('I fill in the payment information form') do |table|
+    payment_info = table.rows_hash
+    fill_in 'CardNumber', with: payment_info['Card Number']
+    fill_in 'CardDate', with: payment_info['Expiration']
+end
+
 # And I check the "Same as Bill To" checkbox
 And('I check the {string} checkbox') do |checkbox_label|
     checkbox_xpath = "/html/body/form/table/tbody/tr[2]/td[3]/table/tbody/tr[1]/td[2]/input"
@@ -75,12 +81,79 @@ end
 
 # And I fill in the shipping information form
 And('I fill in the shipping information form') do |table|
-    billing_info = table.rows_hash
+    shipping_info = table.rows_hash
 
-    fill_in 'shipName', with: billing_info['Name']
-    fill_in 'shipAddress', with: billing_info['Address']
-    fill_in 'shipCity', with: billing_info['City']
-    fill_in 'shipState', with: billing_info['State']
-    fill_in 'shipZipCode', with: billing_info['Zip']
-    fill_in 'shipPhone', with: billing_info['Phone']
+    fill_in 'shipName', with: shipping_info['Name']
+    fill_in 'shipAddress', with: shipping_info['Address']
+    fill_in 'shipCity', with: shipping_info['City']
+    fill_in 'shipState', with: shipping_info['State']
+    fill_in 'shipZipCode', with: shipping_info['Zip']
+    fill_in 'shipPhone', with: shipping_info['Phone']
+end
+
+# And I see pop-up with the message ""
+And(/^I see pop-up with the message "(.*)"$/) do |message|
+    alert = page.driver.browser.switch_to.alert
+    expect(alert.text).to eq(message)
+end
+
+# And I click the "OK" button on the pop-up
+And(/^I click the "(.*)" button on the pop-up$/) do |_button|
+    page.driver.browser.switch_to.alert.accept
+end
+
+# And I fill in the "" bill field with ""
+And(/^I fill in the "(.*)" bill field with "(.*)"$/) do |field, value|
+    case field
+    when 'Name'
+        fill_in 'billName', with: value
+    when 'Address'
+        fill_in 'billAddress', with: value
+    when 'City'
+        fill_in 'billCity', with: value
+    when 'State'
+        fill_in 'billState', with: value
+    when 'Zip'
+        fill_in 'billZipCode', with: value
+    when 'Phone'
+        fill_in 'billPhone', with: value
+    when 'E-mail'
+        fill_in 'billEmail', with: value
+    else
+      raise "El campo '#{field}' no reconocido"
+    end
+end
+
+
+
+# And I fill in the "" payment field with ""
+And(/^I fill in the "(.*)" payment field with "(.*)"$/) do |field, value|
+    case field
+    when 'Card Number'
+        fill_in 'CardNumber', with: value
+    when 'Expiration'
+        fill_in 'CardDate', with: value
+    else
+      raise "El campo '#{field}' no reconocido"
+    end
+end
+
+# And I fill in the "" ship field with ""
+And(/^I fill in the "(.*)" ship field with "(.*)"$/) do |field, value|
+    case field
+    when 'Name'
+        fill_in 'shipName', with: value
+    when 'Address'
+        fill_in 'shipAddress', with: value
+    when 'City'
+        fill_in 'shipCity', with: value
+    when 'State'
+        fill_in 'shipState', with: value
+    when 'Zip'
+        fill_in 'shipZipCode', with: value
+    when 'Phone'
+        fill_in 'shipPhone', with: value
+    else
+      raise "El campo '#{field}' no reconocido"
+    end
 end

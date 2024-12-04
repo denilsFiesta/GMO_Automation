@@ -1,0 +1,42 @@
+Scenario: Complete billing information by omitting the name ship field
+  When I fill in the billing information form
+    | Field             | Value              |
+    | Name              | Pepe               |
+    | Address           | casa redo          |
+    | City              | cocha              |
+    | State             | cercado            |
+    | Zip               | 33126              |
+    | Phone             | 123-123-1234       |
+    | E-mail            | redito@gmail.com   |
+  And I select "Visa" from the "Credit Card" dropdown
+  And I fill in the payment information form
+    | Card Number       | 1234-1234-1234-1234|
+    | Expiration        | 05/26              |
+  And I fill in the shipping information form
+    | Field             | Value              |
+    | Name              | Denis              |
+    | Address           | casa boris         |
+    | City              | llallagua          |
+    | State             | bustillo           |
+    | Zip               | 27891              |
+    | Phone             | 321-321-4321       |
+  And I click the "Place The Order" button
+  And I see pop-up with the message "This is a required field."
+  And I click the "OK" button on the pop-up
+  And I fill in the "Name" ship field with "Denis"
+  And I click the "Place The Order" button
+
+  Then I should see the "OnLine Store Receipt" page
+  
+  And I should see the following "Bill To" information
+    | Field             | Value                |
+    | Name              | Pepe                 |
+    | Address           | casa redo            |
+    | FullAdress        | cocha, cercado 33126 |
+
+  And I should see the following "Ship To" information
+    | Field             | Value                     |
+    | Name              | Denis                     |
+    | Address           | casa boris                |
+    | FullAdress        | llallagua, bustillo 27891 |
+    | Phone             | 321-321-4321              |
