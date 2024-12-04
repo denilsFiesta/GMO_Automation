@@ -9,7 +9,7 @@ Background:
   And I click the "Place An Order" button
   And I click the "Proceed With Order" button
 
-  Scenario Outline: Complete billing information by reusing the data for the shipment
+Scenario Outline: Complete billing information by reusing the data for the shipment
   When I fill in the billing information form
     | Field             | Value              |
     | Name              | Pepe               |

@@ -63,7 +63,7 @@ Scenario Outline: Fill a wrong quantity of a product by mistake and then correct
   | Padded Socks                        | 0.1            | 10              | $ 19.99       | $ 199.90        | $ 199.90          | $ 9.99        | $ 214.89        |
   | Hiking Boots                        | 0.1            | 3               | $ 109.90      | $ 329.70        | $ 329.70          | $ 16.49       | $ 351.19        |
   | Back Country Shorts                 | 0.1            | 5               | $ 24.95       | $ 124.75        | $ 124.75          | $ 6.24        | $ 135.99        |
-    | 3 Person Dome Tent                | abc            | 2               | $ 299.99      | $ 599.98        | $ 599.98          | $ 30.00       | $ 634.98        |
+  | 3 Person Dome Tent                  | abc            | 2               | $ 299.99      | $ 599.98        | $ 599.98          | $ 30.00       | $ 634.98        |
   | External Frame Backpack             | abc            | 3               | $ 179.95      | $ 539.85        | $ 539.85          | $ 26.99       | $ 571.84        |
   | Glacier Sun Glasses                 | abc            | 4               | $ 67.99       | $ 271.96        | $ 271.96          | $ 13.60       | $ 290.56        |
   | Padded Socks                        | abc            | 10              | $ 19.99       | $ 199.90        | $ 199.90          | $ 9.99        | $ 214.89        |
