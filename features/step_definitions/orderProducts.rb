@@ -108,7 +108,7 @@ When(/^I type the "(.*)" quantity for the following "(.*)" product for buying$/)
     sleep 2
 end
 
-When(/^I write "(.*)" in the input box of the product "(.*)"$/) do |quantity, product|
+When(/^I write "(.*)" in the quantity of the product "(.*)"$/) do |quantity, product|
   within('body > form > table > tbody > tr:nth-child(2) > td > div > center > table') do
     row = find('tr', text: product)
     row.find('input[type="text"]').set(quantity)

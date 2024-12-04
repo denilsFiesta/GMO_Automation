@@ -5,7 +5,7 @@ Feature: As an online shopper
 Background:
   Given I am on the GMO OnLine main page
   And I click the "Enter GMO OnLine" button
-  And I write "1" in the input box of the product "3 Person Dome Tent"
+  And I write "1" in the quantity of the product "3 Person Dome Tent"
   And I click the "Place An Order" button
   And I click the "Proceed With Order" button
 
