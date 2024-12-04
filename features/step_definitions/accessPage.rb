@@ -32,6 +32,8 @@ Then(/^I should see the "(.*)" page$/) do |page_title|
     expect(page).to have_xpath("/html/body/table/tbody/tr/td[1]/h1")
   when 'OnLine Store Receipt'
     expect(page).to have_xpath("/html/body/h1")
+  when 'Place Order'
+    expect(page).to have_xpath("/html/body/table/tbody/tr/td[1]/h1")
   else
     raise "Página con título '#{page_title}' no reconocida"
   end
