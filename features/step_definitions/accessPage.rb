@@ -37,5 +37,4 @@ Then(/^I should see the "(.*)" page$/) do |page_title|
   else
     raise "Página con título '#{page_title}' no reconocida"
   end
-  sleep 2
 end
